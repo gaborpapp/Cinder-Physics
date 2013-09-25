@@ -1,9 +1,12 @@
 #pragma once
 
+#include <algorithm>
 #include <vector>
 
 #include "Particle.h"
 #include "Spring.h"
+#include "behaviour/ParticleBehaviour.h"
+#include "behaviour/AttractionBehaviour.h"
 
 namespace mndl { namespace physics {
 
@@ -24,6 +27,18 @@ public:
 	void addSpring( std::shared_ptr< Spring< VecT > > sref )
 	{
 		mSprings.push_back( sref );
+	}
+
+	void addBehaviour( std::shared_ptr< ParticleBehaviour< VecT > > bref )
+	{
+		bref->configure( mTimeStep );
+		mBehaviours.push_back( bref );
+	}
+
+	void removeBehaviour( std::shared_ptr< ParticleBehaviour< VecT > > bref )
+	{
+		auto bit = std::find( mBehaviours.begin(), mBehaviours.end(), bref );
+		mBehaviours.erase( bit );
 	}
 
 	std::vector< std::shared_ptr< Particle< VecT > > > & getParticles() { return mParticles; }
@@ -48,6 +63,7 @@ protected:
 
 	std::vector< std::shared_ptr< Particle< VecT > > > mParticles;
 	std::vector< std::shared_ptr< Spring< VecT > > > mSprings;
+	std::vector< std::shared_ptr< ParticleBehaviour< VecT > > > mBehaviours;
 };
 
 typedef VerletPhysics< ci::Vec2f > VerletPhysics2f;
