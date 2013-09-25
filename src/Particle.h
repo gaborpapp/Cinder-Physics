@@ -90,7 +90,7 @@ public:
 
 protected:
 	Particle( const VecT &pos = VecT::zero(), float w = 1.f ) :
-		mPos( pos )
+		mPos( pos ), mPrevPos( pos ), mIsLocked( false )
 	{
 		setWeight( w );
 	}
