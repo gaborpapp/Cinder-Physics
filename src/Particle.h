@@ -9,22 +9,15 @@ template< class VecT >
 class Particle
 {
 public:
-	VecT mPos, mPrevPos;
-	bool mIsLocked;
-
-	float mWeight, mInvWeight;
-	VecT mForce;
-
-	Particle( const VecT &pos = VecT::zero(), float w = 1.f ) :
-		mPos( pos )
+	static std::shared_ptr< Particle< VecT > > create( const VecT &pos = VecT::zero(), float w = 1.f )
 	{
-		setWeight( w );
+		return std::shared_ptr< Particle< VecT > >( new Particle< VecT >( pos, w ) );
 	}
 
-	Particle( const Particle< VecT > &src ) :
-		Particle( src.mPos, src.mWeight ),
-		mIsLocked( src.mIsLocked )
-	{}
+	static std::shared_ptr< Particle< VecT > > create( std::shared_ptr< Particle< VecT > > srcRef )
+	{
+		return std::shared_ptr< Particle< VecT > >( new Particle< VecT >( *srcRef.get() ) );
+	}
 
 	void setWeight( float w )
 	{
@@ -86,9 +79,26 @@ public:
 
     void scaleVelocity( float s )
 	{
-		mPrevPos.lerp( mPos, 1.f - s );
-        return this;
+		mPrevPos = mPrevPos.lerp( s, mPos );
     }
+
+	VecT mPos, mPrevPos;
+	bool mIsLocked;
+
+	float mWeight, mInvWeight;
+	VecT mForce;
+
+protected:
+	Particle( const VecT &pos = VecT::zero(), float w = 1.f ) :
+		mPos( pos )
+	{
+		setWeight( w );
+	}
+
+	Particle( const Particle< VecT > &src ) :
+		Particle( src.mPos, src.mWeight ),
+		mIsLocked( src.mIsLocked )
+	{}
 };
 
 typedef Particle< ci::Vec2f > Particle2f;

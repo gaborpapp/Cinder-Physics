@@ -1,0 +1,11 @@
+Import('env')
+
+_INCLUDES = [Dir('../src').abspath]
+
+_SOURCES = ['VerletPhysics.cpp']
+_SOURCES = [File('../src/' + s).abspath for s in _SOURCES]
+
+env.Append(APP_SOURCES = _SOURCES)
+env.Append(CPPPATH = _INCLUDES)
+
+Return('env')
