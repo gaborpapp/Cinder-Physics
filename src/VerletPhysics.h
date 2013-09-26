@@ -49,6 +49,8 @@ public:
 
 	void update();
 
+	void clear();
+
 protected:
 	VerletPhysics( size_t numIterations, float drag, float timeStep ) :
 		mNumIterations( numIterations ), mDrag( drag ), mTimeStep( timeStep )

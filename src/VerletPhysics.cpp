@@ -42,6 +42,14 @@ void VerletPhysics< VecT >::updateSprings()
 	}
 }
 
+template< class VecT >
+void VerletPhysics< VecT >::clear()
+{
+	mParticles.clear();
+	mSprings.clear();
+	mBehaviours.clear();
+}
+
 template class VerletPhysics< ci::Vec2f >;
 
 } } // namespace mndl::physics
