@@ -14,7 +14,7 @@ template< class VecT >
 class VerletPhysics
 {
 public:
-	static std::shared_ptr< VerletPhysics< VecT > > create( size_t numIterations = 50, float drag = 1.f, float timeStep = 1.f )
+	static std::shared_ptr< VerletPhysics< VecT > > create( size_t numIterations = 50, float drag = 0.f, float timeStep = 1.f )
 	{
 		return std::shared_ptr< VerletPhysics< VecT > >( new VerletPhysics( numIterations, drag, timeStep ) );
 	}
@@ -51,7 +51,7 @@ public:
 
 protected:
 	VerletPhysics( size_t numIterations, float drag, float timeStep ) :
-		mNumIterations( numIterations ), mDrag( drag), mTimeStep( timeStep )
+		mNumIterations( numIterations ), mDrag( drag ), mTimeStep( timeStep )
 	{}
 
 	void updateParticles();
