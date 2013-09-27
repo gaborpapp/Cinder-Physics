@@ -62,7 +62,8 @@ public:
 protected:
 	Spring( std::shared_ptr< Particle< VecT > > a, std::shared_ptr< Particle< VecT > > b,
 			float restLength, float strength ) :
-		mA( a ), mB( b ), mRestLength( restLength ), mStrength( strength )
+		mA( a ), mB( b ), mRestLength( restLength ), mStrength( strength ),
+		mIsALocked( false ), mIsBLocked( false )
 	{}
 };
 
