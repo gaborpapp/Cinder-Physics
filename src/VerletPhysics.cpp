@@ -51,6 +51,7 @@ void VerletPhysics< VecT >::clear()
 }
 
 template class VerletPhysics< ci::Vec2f >;
+template class VerletPhysics< ci::Vec3f >;
 
 } } // namespace mndl::physics
 

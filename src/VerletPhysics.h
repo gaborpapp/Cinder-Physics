@@ -70,5 +70,7 @@ protected:
 
 typedef VerletPhysics< ci::Vec2f > VerletPhysics2f;
 typedef std::shared_ptr< VerletPhysics2f > VerletPhysics2fRef;
+typedef VerletPhysics< ci::Vec3f > VerletPhysics3f;
+typedef std::shared_ptr< VerletPhysics3f > VerletPhysics3fRef;
 
 } } // namespace mndl::physics

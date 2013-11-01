@@ -69,6 +69,8 @@ protected:
 
 typedef Spring< ci::Vec2f > Spring2f;
 typedef std::shared_ptr< Spring< ci::Vec2f > > Spring2fRef;
+typedef Spring< ci::Vec3f > Spring3f;
+typedef std::shared_ptr< Spring< ci::Vec3f > > Spring3fRef;
 
 } } // namespace mndl::physics
 

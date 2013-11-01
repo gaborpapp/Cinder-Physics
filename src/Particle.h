@@ -103,6 +103,8 @@ protected:
 
 typedef Particle< ci::Vec2f > Particle2f;
 typedef std::shared_ptr< Particle< ci::Vec2f > > Particle2fRef;
+typedef Particle< ci::Vec3f > Particle3f;
+typedef std::shared_ptr< Particle< ci::Vec3f > > Particle3fRef;
 
 } } // namespace mndl::physics
 

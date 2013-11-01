@@ -65,5 +65,7 @@ protected:
 
 typedef AttractionBehaviour< ci::Vec2f > AttractionBehaviour2f;
 typedef std::shared_ptr< AttractionBehaviour2f > AttractionBehaviour2fRef;
+typedef AttractionBehaviour< ci::Vec3f > AttractionBehaviour3f;
+typedef std::shared_ptr< AttractionBehaviour3f > AttractionBehaviour3fRef;
 
 } } // namespace mndl::physics
