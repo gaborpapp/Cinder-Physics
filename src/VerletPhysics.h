@@ -5,8 +5,9 @@
 
 #include "Particle.h"
 #include "Spring.h"
-#include "behaviour/ParticleBehaviour.h"
 #include "behaviour/AttractionBehaviour.h"
+#include "behaviour/ConstantForceBehaviour.h"
+#include "behaviour/ParticleBehaviour.h"
 
 namespace mndl { namespace physics {
 
