@@ -19,17 +19,20 @@ public:
 		setStrength( mStrength );
 	}
 
+	VecT getPosition() const { return mPos; }
 	void setPosition( const VecT &pos )
 	{
 		mPos = pos;
 	}
 
+	float getRadius() const { return mRadius; }
 	void setRadius( float r )
 	{
 		mRadius = r;
 		mRadiusSquared = r * r;
 	}
 
+	float getStrength() const { return mStrength; }
 	void setStrength( float strength )
 	{
 		mStrength = strength;
