@@ -2,7 +2,7 @@
 
 #include "cinder/Cinder.h"
 
-#include "Particle.h"
+#include "mndl/physics/Particle.h"
 
 namespace mndl { namespace physics {
 

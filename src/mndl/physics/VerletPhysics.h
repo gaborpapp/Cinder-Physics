@@ -3,11 +3,11 @@
 #include <algorithm>
 #include <vector>
 
-#include "Particle.h"
-#include "Spring.h"
-#include "behaviour/AttractionBehaviour.h"
-#include "behaviour/ConstantForceBehaviour.h"
-#include "behaviour/ParticleBehaviour.h"
+#include "mndl/physics/Particle.h"
+#include "mndl/physics/Spring.h"
+#include "mndl/physics/behaviour/AttractionBehaviour.h"
+#include "mndl/physics/behaviour/ConstantForceBehaviour.h"
+#include "mndl/physics/behaviour/ParticleBehaviour.h"
 
 namespace mndl { namespace physics {
 

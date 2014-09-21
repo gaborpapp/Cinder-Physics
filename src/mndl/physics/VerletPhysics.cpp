@@ -1,4 +1,4 @@
-#include "VerletPhysics.h"
+#include "mndl/physics/VerletPhysics.h"
 
 namespace mndl { namespace physics {
 

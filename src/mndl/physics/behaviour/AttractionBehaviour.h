@@ -1,6 +1,6 @@
 #pragma once
 
-#include "behaviour/ParticleBehaviour.h"
+#include "mndl/physics/behaviour/ParticleBehaviour.h"
 
 namespace mndl { namespace physics {
 
