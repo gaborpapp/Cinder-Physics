@@ -69,9 +69,9 @@ protected:
 	std::vector< std::shared_ptr< ParticleBehaviour< VecT > > > mBehaviours;
 };
 
-typedef VerletPhysics< ci::Vec2f > VerletPhysics2f;
+typedef VerletPhysics< ci::vec2 > VerletPhysics2f;
 typedef std::shared_ptr< VerletPhysics2f > VerletPhysics2fRef;
-typedef VerletPhysics< ci::Vec3f > VerletPhysics3f;
+typedef VerletPhysics< ci::vec3 > VerletPhysics3f;
 typedef std::shared_ptr< VerletPhysics3f > VerletPhysics3fRef;
 
 } } // namespace mndl::physics

@@ -50,8 +50,8 @@ void VerletPhysics< VecT >::clear()
 	mBehaviours.clear();
 }
 
-template class VerletPhysics< ci::Vec2f >;
-template class VerletPhysics< ci::Vec3f >;
+template class VerletPhysics< ci::vec2 >;
+template class VerletPhysics< ci::vec3 >;
 
 } } // namespace mndl::physics
 

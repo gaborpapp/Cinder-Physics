@@ -9,7 +9,7 @@ template< class VecT >
 class Particle
 {
 public:
-	static std::shared_ptr< Particle< VecT > > create( const VecT &pos = VecT::zero(), float w = 1.f )
+	static std::shared_ptr< Particle< VecT > > create( const VecT &pos = VecT( 0 ), float w = 1.f )
 	{
 		return std::shared_ptr< Particle< VecT > >( new Particle< VecT >( pos, w ) );
 	}
@@ -40,7 +40,7 @@ public:
 		VecT temp = mPos;
 		mPos += mPos - mPrevPos + mForce * mInvWeight;
 		mPrevPos = temp;
-		mForce = VecT::zero();
+		mForce = VecT( 0 );
 	}
 
 	VecT getVelocity() const
@@ -50,7 +50,7 @@ public:
 
 	void clearForce()
 	{
-		mForce = VecT::zero();
+		mForce = VecT( 0 );
 	}
 
 	void clearVelocity()
@@ -79,7 +79,7 @@ public:
 
     void scaleVelocity( float s )
 	{
-		mPrevPos = mPrevPos.lerp( s, mPos );
+		mPrevPos = glm::mix( mPrevPos, mPos, s );
     }
 
 	VecT mPos, mPrevPos;
@@ -89,7 +89,7 @@ public:
 	VecT mForce;
 
 protected:
-	Particle( const VecT &pos = VecT::zero(), float w = 1.f ) :
+	Particle( const VecT &pos = VecT( 0 ), float w = 1.f ) :
 		mPos( pos ), mPrevPos( pos ), mIsLocked( false )
 	{
 		setWeight( w );
@@ -101,10 +101,10 @@ protected:
 	{}
 };
 
-typedef Particle< ci::Vec2f > Particle2f;
-typedef std::shared_ptr< Particle< ci::Vec2f > > Particle2fRef;
-typedef Particle< ci::Vec3f > Particle3f;
-typedef std::shared_ptr< Particle< ci::Vec3f > > Particle3fRef;
+typedef Particle< ci::vec2 > Particle2f;
+typedef std::shared_ptr< Particle< ci::vec2 > > Particle2fRef;
+typedef Particle< ci::vec3 > Particle3f;
+typedef std::shared_ptr< Particle< ci::vec3 > > Particle3fRef;
 
 } } // namespace mndl::physics
 

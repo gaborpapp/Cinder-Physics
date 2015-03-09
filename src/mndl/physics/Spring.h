@@ -4,6 +4,8 @@
 #include "cinder/CinderMath.h"
 #include "cinder/Vector.h"
 
+#include "glm/gtc/constants.hpp"
+
 namespace mndl { namespace physics {
 
 template< class VecT >
@@ -40,7 +42,7 @@ public:
     void update()
 	{
 		VecT delta = mB->mPos - mA->mPos;
-        float dist = delta.length() + ci::EPSILON_VALUE;
+        float dist = glm::length( delta ) + ci::EPSILON_VALUE;
         float normDistStrength = ( dist - mRestLength ) /
 			( dist * ( mA->mInvWeight + mB->mInvWeight)) * mStrength;
         if ( !mA->mIsLocked && !mIsALocked )
@@ -67,10 +69,10 @@ protected:
 	{}
 };
 
-typedef Spring< ci::Vec2f > Spring2f;
-typedef std::shared_ptr< Spring< ci::Vec2f > > Spring2fRef;
-typedef Spring< ci::Vec3f > Spring3f;
-typedef std::shared_ptr< Spring< ci::Vec3f > > Spring3fRef;
+typedef Spring< ci::vec2 > Spring2f;
+typedef std::shared_ptr< Spring< ci::vec2 > > Spring2fRef;
+typedef Spring< ci::vec3 > Spring3f;
+typedef std::shared_ptr< Spring< ci::vec3 > > Spring3fRef;
 
 } } // namespace mndl::physics
 

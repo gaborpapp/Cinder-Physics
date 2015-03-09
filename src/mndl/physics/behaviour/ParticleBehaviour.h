@@ -21,9 +21,9 @@ protected:
 	float mTimeStep;
 };
 
-typedef ParticleBehaviour< ci::Vec2f > ParticleBehaviour2f;
+typedef ParticleBehaviour< ci::vec2 > ParticleBehaviour2f;
 typedef std::shared_ptr< ParticleBehaviour2f > ParticleBehaviour2fRef;
-typedef ParticleBehaviour< ci::Vec3f > ParticleBehaviour3f;
+typedef ParticleBehaviour< ci::vec3 > ParticleBehaviour3f;
 typedef std::shared_ptr< ParticleBehaviour3f > ParticleBehaviour3fRef;
 
 } } // namespace mndl::physics

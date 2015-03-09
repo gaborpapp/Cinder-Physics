@@ -37,9 +37,9 @@ class ConstantForceBehaviour : public ParticleBehaviour< VecT >
 	VecT mForce;
 };
 
-typedef ConstantForceBehaviour< ci::Vec2f > ConstantForceBehaviour2f;
+typedef ConstantForceBehaviour< ci::vec2 > ConstantForceBehaviour2f;
 typedef std::shared_ptr< ConstantForceBehaviour2f > ConstantForceBehaviour2fRef;
-typedef ConstantForceBehaviour< ci::Vec3f > ConstantForceBehaviour3f;
+typedef ConstantForceBehaviour< ci::vec3 > ConstantForceBehaviour3f;
 typedef std::shared_ptr< ConstantForceBehaviour3f > ConstantForceBehaviour3fRef;
 
 } } // namespace mndl::physics

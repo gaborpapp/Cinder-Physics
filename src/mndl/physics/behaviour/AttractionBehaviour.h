@@ -42,11 +42,11 @@ public:
 	virtual void apply( std::shared_ptr< Particle< VecT > > pref )
 	{
 		VecT delta = mPos - pref->mPos;
-		float dSq = delta.lengthSquared();
+		float dSq = glm::length2( delta );
 
 		if ( dSq < mRadiusSquared )
 		{
-			VecT f = delta.normalized() * ( 1.f - dSq / mRadiusSquared ) * mAttrStrength;
+			VecT f = glm::normalize( delta ) * ( 1.f - dSq / mRadiusSquared ) * mAttrStrength;
 			pref->addForce( f );
 		}
 	}
@@ -66,9 +66,9 @@ protected:
 	float mStrength;
 };
 
-typedef AttractionBehaviour< ci::Vec2f > AttractionBehaviour2f;
+typedef AttractionBehaviour< ci::vec2 > AttractionBehaviour2f;
 typedef std::shared_ptr< AttractionBehaviour2f > AttractionBehaviour2fRef;
-typedef AttractionBehaviour< ci::Vec3f > AttractionBehaviour3f;
+typedef AttractionBehaviour< ci::vec3 > AttractionBehaviour3f;
 typedef std::shared_ptr< AttractionBehaviour3f > AttractionBehaviour3fRef;
 
 } } // namespace mndl::physics
