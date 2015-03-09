@@ -39,21 +39,21 @@ public:
 		mIsBLocked = false;
 	}
 
-    void update()
+	void update()
 	{
 		VecT delta = mB->mPos - mA->mPos;
-        float dist = glm::length( delta ) + ci::EPSILON_VALUE;
-        float normDistStrength = ( dist - mRestLength ) /
-			( dist * ( mA->mInvWeight + mB->mInvWeight)) * mStrength;
-        if ( !mA->mIsLocked && !mIsALocked )
+		float dist = glm::length( delta ) + ci::EPSILON_VALUE;
+		float normDistStrength = ( dist - mRestLength ) /
+			( dist * ( mA->mInvWeight + mB->mInvWeight ) ) * mStrength;
+		if ( ! mA->mIsLocked && ! mIsALocked )
 		{
 			mA->mPos += delta * normDistStrength * mA->mInvWeight;
-        }
-        if ( !mB->mIsLocked && !mIsBLocked )
+		}
+		if ( ! mB->mIsLocked && ! mIsBLocked )
 		{
 			mB->mPos += delta * -normDistStrength * mB->mInvWeight;
-        }
-    }
+		}
+	}
 
 	std::shared_ptr< Particle< VecT > > mA, mB;
 	float mRestLength;

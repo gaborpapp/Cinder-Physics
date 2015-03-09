@@ -71,16 +71,16 @@ public:
 
 	void update()
 	{
-		if ( !mIsLocked )
+		if ( ! mIsLocked )
 		{
 			applyForce();
 		}
 	}
 
-    void scaleVelocity( float s )
+	void scaleVelocity( float s )
 	{
 		mPrevPos = glm::mix( mPrevPos, mPos, s );
-    }
+	}
 
 	VecT mPos, mPrevPos;
 	bool mIsLocked;
