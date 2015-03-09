@@ -45,13 +45,14 @@ public:
 		float dist = glm::length( delta ) + ci::EPSILON_VALUE;
 		float normDistStrength = ( dist - mRestLength ) /
 			( dist * ( mA->mInvWeight + mB->mInvWeight ) ) * mStrength;
+		delta *= normDistStrength;
 		if ( ! mA->mIsLocked && ! mIsALocked )
 		{
-			mA->mPos += delta * normDistStrength * mA->mInvWeight;
+			mA->mPos += delta * mA->mInvWeight;
 		}
 		if ( ! mB->mIsLocked && ! mIsBLocked )
 		{
-			mB->mPos += delta * -normDistStrength * mB->mInvWeight;
+			mB->mPos -= delta * mB->mInvWeight;
 		}
 	}
 
