@@ -58,9 +58,9 @@ public:
 		mPrevPos = mPos;
 	}
 
-	void lock()
+	void lock( bool lock = true )
 	{
-		mIsLocked = true;
+		mIsLocked = lock;
 	}
 
 	void unlock()

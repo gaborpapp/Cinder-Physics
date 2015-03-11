@@ -19,9 +19,9 @@ public:
 		return std::shared_ptr< Spring< VecT > >( new Spring< VecT >( a, b, restLength, strength ) );
 	}
 
-	void lockA()
+	void lockA( bool lock = true )
 	{
-		mIsALocked = true;
+		mIsALocked = lock;
 	}
 
 	void unlockA()
@@ -29,9 +29,9 @@ public:
 		mIsALocked = false;
 	}
 
-	void lockB()
+	void lockB( bool lock = true )
 	{
-		mIsBLocked = true;
+		mIsBLocked = lock;
 	}
 
 	void unlockB()
