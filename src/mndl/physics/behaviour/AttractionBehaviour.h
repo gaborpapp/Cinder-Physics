@@ -44,7 +44,7 @@ public:
 		VecT delta = mPos - pref->mPos;
 		float dSq = glm::length2( delta );
 
-		if ( dSq < mRadiusSquared )
+		if ( ( dSq < mRadiusSquared ) && ( dSq > 0.0f ) )
 		{
 			VecT f = glm::normalize( delta ) * ( 1.f - dSq / mRadiusSquared ) * mAttrStrength;
 			pref->addForce( f );
